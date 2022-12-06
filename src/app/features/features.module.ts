@@ -14,11 +14,7 @@ import { ProductsComponent } from './products/products.component';
 @NgModule({
   declarations: [
     FeaturesComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    CarritoComponent,
-    ProductsComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,

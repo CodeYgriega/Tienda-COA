@@ -7,33 +7,11 @@
         <- Inicio
     </button>
 
-    <form class="w-75 p-5 card shadow d-flex flex-column gap-2">
-        <h1 class="mb-4 pb-3">
-            Inicio de sesión
-        </h1>
-        <label for="email" class="h5 m-0">
-            Email:
-            <input  type="text"
-                    id="email"
-                    name="email"
-                    placeholder="Ingrese su email..."
-                    class="form-control my-2">
-        </label>
-        <label for="password" class="h5 m-0">
-            Contraseña:
-            <input  type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Ingrese su contraseña..."
-                    class="form-control my-2">
-        </label>
-        <button class="btn btn-info text-white w-100">
-            Log-In
-        </button>
-        <p class="text-center">
-            ¿Todavía no tienes cuenta? <br>
-            <a class="link-info" routerLink="/auth/register">Regístrate aquí</a>
-        </p>
-    </form>
+    <app-form-login-register
+    class="w-75"
+    [title]="'Inicio de sesión'"
+    [button]="'Log In'"
+    (onSendForm)="login($event)">   
+    </app-form-login-register>
 
 </div>
