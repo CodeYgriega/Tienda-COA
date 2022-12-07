@@ -21,7 +21,7 @@
                         Carrito
                     </a>
                 </li>
-                <li class="nav-item">
+                <!--<li class="nav-item">
                     <a class="nav-link" routerLink="/auth/register">
                         Registrarse
                     </a>
@@ -29,6 +29,14 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/auth/login">
                         Iniciar sesión
+                    </a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/auth/login">
+                        <button class="btn btn-sm btn-danger"
+                                (click)="logOut()">
+                            Log Out ->
+                        </button>
                     </a>
                 </li>
             </ul>

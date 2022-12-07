@@ -1,7 +1,5 @@
-<app-navbar></app-navbar>
 <main class="container d-flex flex-column justify-content-center align-items-center">
-    <div
-    class=" d-flex flex-column align-items-center">
+    <div class=" d-flex flex-column align-items-center">
         <h1>
             ¡Bienvenido a la Tienda de COA!
         </h1>
@@ -11,12 +9,17 @@
                 <sup>*</sup>Aplicación desarrollada por Oliver Yanicelli a modo de prueba técnica para COA.<sup>*</sup>
             </small>
         </p>
-        <button
-        class=" btn btn-info btn-lg
-                text-white
-                w-50"
-        routerLink="/products">
-            Comenzar
-        </button>
+
+        <div class="d-flex gap-3">
+            <button class=" btn btn-lg btn-secondary"
+                routerLink="/auth/register">
+                ¡Regístrate!
+            </button>
+            <button class=" btn btn-lg btn-info
+                            text-white"
+                routerLink="/products">
+                Ver productos
+            </button>
+        </div>
     </div>
 </main>

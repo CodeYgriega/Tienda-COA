@@ -1,7 +1,7 @@
 <form   class="p-5 card shadow d-flex flex-column gap-2"
         [formGroup]="form">
 
-    <h1 class="mb-4 pb-3">
+    <h1 class="mt-3 mb-4 pb-3">
         {{ title }}
     </h1>
 
@@ -51,5 +51,11 @@
         class="text-center mt-1">
         ¿Todavía no tienes cuenta? <br>
         <a class="link-info" routerLink="/auth/register">Regístrate aquí</a>
+    </p>
+
+    <p  *ngIf="register"
+        class="text-center mt-1">
+        ¿Ya tienes una cuenta? <br>
+        <a class="link-info" routerLink="/auth/login">Ingresa aquí</a>
     </p>
 </form>

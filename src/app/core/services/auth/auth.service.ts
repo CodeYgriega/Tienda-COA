@@ -14,15 +14,28 @@ export class AuthService {
 
   constructor(private auth: Auth) { }
 
-  logIn({ email, password }: LoginData){
-    return signInWithEmailAndPassword(this.auth, email, password);
-  }
-
   register({ email, password }: LoginData){
     return createUserWithEmailAndPassword(this.auth, email, password);
+  }
+
+  logIn({ email, password }: LoginData){
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   logOut(){
     return signOut(this.auth);
   }
+  
+  /*
+  saveToken(token: string){
+    localStorage.setItem("token", token);
+  }
+
+  getToken(){
+    return localStorage.getItem("token");
+  }
+
+  removeToken(){
+    localStorage.removeItem("token");
+  }*/
 }
