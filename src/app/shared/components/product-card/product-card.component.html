@@ -12,8 +12,9 @@
         <p class="card-text">
             {{ product.description }}
         </p>
-        <button class="w-100 btn btn-info text-white">
-            Agregar al carrito
+        <button class="w-100 btn btn-{{classButton}} text-white"
+                (click)="captureProduct(product)">
+            {{ buttonText }}
         </button>
     </div>
 

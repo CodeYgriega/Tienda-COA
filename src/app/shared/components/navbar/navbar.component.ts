@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Logout_Action } from 'src/app/core/ngrx/actions/auth.actions';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -12,14 +13,13 @@ export class NavbarComponent {
   
   constructor(
     private authService: AuthService,
-    private store: Store
+    private store: Store,
+    private router: Router
     ){ }
 
   logOut(){
     this.authService.logOut();
 
     this.store.dispatch(Logout_Action());
-
-    //this.authService.removeToken();
   }
 }

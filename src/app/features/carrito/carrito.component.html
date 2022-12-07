@@ -1,13 +1,24 @@
 <app-navbar></app-navbar>
 <section class="py-5 d-flex flex-column align-items-center gap-3">
+
     <h1>
         Productos seleccionados: {{ numberOfProducts }}
     </h1>
-    <div *ngFor="let product of cart">
-        <p>{{product.name}}</p>
-    </div>
+
+    <h5 *ngIf="totalPrice > 0">
+        Precio Total: ${{totalPrice | number: '.2-4'}}
+    </h5>
+
+    <app-product-card 
+    *ngFor="let item of cart"
+    [product]="item"
+    [classButton]="'danger'"
+    [buttonText]="'Eliminar del carrito'">
+    </app-product-card>
+
     <p *ngIf="numberOfProducts === 0"
     class="text-secondary h5">
         No tienes productos para mostrar :(
     </p>
+
 </section>

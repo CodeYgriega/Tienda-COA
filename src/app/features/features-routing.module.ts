@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 
 import { FeaturesComponent } from './features.component';
 import { HomeComponent } from './home/home.component';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth']);
+const redirectLoggedInToProducts = () => redirectLoggedInTo(['products']);
 
 const routes: Routes = [
   {
@@ -11,11 +15,15 @@ const routes: Routes = [
     children: [
       {
         path: "cart",
-        loadChildren: () => import("./carrito/carrito.module").then(m => m.CarritoModule)
+        loadChildren: () => import("./carrito/carrito.module").then(m => m.CarritoModule),
+        canActivate: [AuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin }
       },
       {
         path: "products",
-        loadChildren: () => import("./products/products.module").then(m => m.ProductsModule)
+        loadChildren: () => import("./products/products.module").then(m => m.ProductsModule),
+        canActivate: [AuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin }
       },
       {
         path: "auth",
@@ -23,7 +31,9 @@ const routes: Routes = [
       },
       {
         path: "home",
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard],
+        data: { authGuardPipe: redirectLoggedInToProducts }
       },
       {
         path: "",

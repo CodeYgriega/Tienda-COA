@@ -3,7 +3,9 @@
     <div class="w-100 d-flex justify-content-center flex-wrap gap-4">
         <app-product-card
         *ngFor="let item of products"
-        [product]="item">
+        [product]="item"
+        [classButton]="'info'"
+        [buttonText]="'Agregar al carrito'">
         </app-product-card>
     </div>
 </section>
