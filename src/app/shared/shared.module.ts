@@ -19,7 +19,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   ],
   exports: [
     NavbarComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

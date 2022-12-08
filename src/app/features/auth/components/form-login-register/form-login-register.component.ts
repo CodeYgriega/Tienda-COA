@@ -15,7 +15,7 @@ export class FormLoginRegisterComponent implements OnInit{
   form: FormGroup;
   login: boolean = false;
   register: boolean = false;
-
+  
   constructor(private fb: FormBuilder){
     this.form = fb.group({
       email: ["", [Validators.required, Validators.email]],

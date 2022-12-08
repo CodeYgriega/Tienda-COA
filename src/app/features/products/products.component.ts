@@ -12,6 +12,8 @@ export class ProductsComponent implements OnInit{
 
   products$!: Observable<Product[]>;
 
+  loading: boolean = true;
+
   constructor(private service: FirebaseService){ }
 
   //al inicializar el componente, ejecutamos la funcion encargada de traer todos los productos guardados en Firebase
