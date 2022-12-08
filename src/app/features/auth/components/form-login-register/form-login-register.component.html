@@ -1,12 +1,20 @@
-<form   class="p-5 card shadow d-flex flex-column gap-2"
+<form   class="p-5 card shadow d-flex flex-column gap-2 gap-md-3"
         [formGroup]="form">
 
-    <h1 class="mt-3 mb-4 pb-3">
+    <h1 class="mt-3 mb-4 pb-3 d-flex align-items-center gap-2 text-nowrap">
+        <span class="material-symbols-outlined fs-1">
+            login
+        </span>
         {{ title }}
     </h1>
 
     <label for="email" class="h5 m-0">
-        Email:
+        <span class="d-flex align-items-center gap-1">
+            <span class="material-symbols-outlined">
+                mail
+            </span>
+            Email:
+        </span>
         <input  type="text"
                 id="email"
                 name="email"
@@ -24,7 +32,13 @@
     </label>
 
     <label for="password" class="h5 m-0 mb-2">
-        Contraseña:
+
+        <span class="d-flex align-items-center gap-1">
+            <span class="material-symbols-outlined">
+                lock
+            </span>
+            Contraseña:
+        </span>
         <input  type="password"
                 id="password"
                 name="password"

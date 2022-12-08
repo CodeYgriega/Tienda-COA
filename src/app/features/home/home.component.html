@@ -1,25 +1,28 @@
 <main class="container d-flex flex-column justify-content-center align-items-center">
-    <div class=" d-flex flex-column align-items-center">
-        <h1>
-            ¡Bienvenido a la Tienda de COA!
-        </h1>
-        <p class="text-center lead">
-            Dentro de ella, si iniciaste sesión podrás visualizar los productos disponibles y sus detalles, añadirlos al carrito (y editarlo) para generar tus órdenes de compra. <br>
-            <small class="fw-bold text-secondary">
-                <sup>*</sup>Aplicación desarrollada por Oliver Yanicelli a modo de prueba técnica para COA.<sup>*</sup>
-            </small>
-        </p>
-
-        <div class="d-flex gap-3">
-            <button class=" btn btn-lg btn-secondary"
-                routerLink="/auth/register">
-                ¡Regístrate!
-            </button>
-            <button class=" btn btn-lg btn-info
-                            text-white"
-                routerLink="/products">
-                Ver productos
-            </button>
+    <div class="col-12 col-sm-11 col-md-8 col-xl-6">
+        <div class=" d-flex flex-column align-items-center">
+            <img src="../../../assets/img/carrito-lleno.jpg" width="200">
+            <h1 class="text-nowrap">
+                ¡Bienvenido a la Tienda de COA!
+            </h1>
+            <p class="text-center lead">
+                Dentro de ella, si iniciaste sesión podrás visualizar los productos disponibles y sus detalles, añadirlos al carrito (y editarlo) para generar tus órdenes de compra. <br>
+                <small class="fw-bold text-secondary">
+                    <sup>*</sup>Aplicación desarrollada por Oliver Yanicelli a modo de prueba técnica para COA.<sup>*</sup>
+                </small>
+            </p>
+    
+            <div class="d-flex gap-3">
+                <button class=" btn btn-lg btn-secondary"
+                    routerLink="/auth/register">
+                    ¡Regístrate!
+                </button>
+                <button class=" btn btn-lg btn-info
+                                text-white"
+                    routerLink="/products">
+                    Ver productos
+                </button>
+            </div>
         </div>
     </div>
 </main>

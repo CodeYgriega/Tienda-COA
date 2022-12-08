@@ -21,3 +21,7 @@ export const Create_Order_For_Buy_Action = createAction(
 export const Create_Order_For_Buy_Success_Action = createAction(
     '[Cart] Create_Order_For_Buy_Success'
 );
+
+export const Create_Order_For_Buy_Error_Action = createAction(
+    '[Cart] Create_Order_For_Buy_Error'
+);

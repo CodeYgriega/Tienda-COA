@@ -14,10 +14,9 @@ export class ProductCardComponent {
   @Input() classButton!: string;
   @Input() buttonText!: string;
 
-  constructor(
-    private store: Store
-    ){}
+  constructor(private store: Store){}
 
+  //método condicional según donde se haya usado el componente, condicionado por el texto del botón "buttonText" proporcionado por un Input
   captureProduct(product: Product){
     if(this.buttonText === "Agregar al carrito"){
 

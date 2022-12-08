@@ -5,9 +5,11 @@ import { AuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/
 import { FeaturesComponent } from './features.component';
 import { HomeComponent } from './home/home.component';
 
+//redirecciones proporcionadas por firebase para direccionar hacia cierta ruta cuando estén o no logeados
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth']);
 const redirectLoggedInToProducts = () => redirectLoggedInTo(['products']);
 
+//lazy loading aplicado junto con los guards
 const routes: Routes = [
   {
     path: "",

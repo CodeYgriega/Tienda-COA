@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/core/models/product';
 import { FirebaseService } from 'src/app/core/services/firebase/firebase.service';
 
@@ -9,17 +10,16 @@ import { FirebaseService } from 'src/app/core/services/firebase/firebase.service
 })
 export class ProductsComponent implements OnInit{
 
-  products!: Product[];
+  products$!: Observable<Product[]>;
 
   constructor(private service: FirebaseService){ }
 
+  //al inicializar el componente, ejecutamos la funcion encargada de traer todos los productos guardados en Firebase
   ngOnInit(): void {
     this.getAllProducts();
   }
 
   getAllProducts(){
-      this.service.getAllProducts().subscribe(res => {
-          this.products = res;
-      })
+    this.products$ = this.service.getAllProducts();
   }
 }

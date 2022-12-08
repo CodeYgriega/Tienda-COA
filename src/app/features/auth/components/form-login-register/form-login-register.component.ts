@@ -11,6 +11,7 @@ export class FormLoginRegisterComponent implements OnInit{
   @Input() button!: string;
   @Output() onSendForm: EventEmitter<any> = new EventEmitter();
 
+  //creación del formulario reactivo
   form: FormGroup;
   login: boolean = false;
   register: boolean = false;
@@ -22,10 +23,12 @@ export class FormLoginRegisterComponent implements OnInit{
     })
   }
 
+  //al inicializar el componente verificamos el titulo brindado por input al componente
   ngOnInit(): void {
     this.verifyTitle();
   }
 
+  //método condicional, devuelve un booleano distinto según el título proporcionado
   verifyTitle(){
     this.title === "Inicio de sesión" ? 
     this.login = true
@@ -33,10 +36,12 @@ export class FormLoginRegisterComponent implements OnInit{
     this.register = true;
   }
 
+  //emitimos los resultados cuando se hace "submit" al form para que el componente padre pueda obtener el $event y encargarse de su tarea correspondiente (login o registro)
   sendEvent(){
     this.onSendForm.emit(this.form.value);
   }
 
+  //getters
   get email(){
     return this.form.get("email");
   }

@@ -1,5 +1,13 @@
 <app-navbar></app-navbar>
-<section class="py-5 d-flex flex-column align-items-center gap-3">
+<section class="py-5 d-flex flex-wrap flex-column justify-content-center align-items-center gap-3">
+
+    <img  *ngIf="(cart$ | async)?.length === 0"  
+          src="../../../assets/img/carrito-vacio2.png"
+          width="200">
+
+    <img  *ngIf="(cart$ | async)?.length !== 0"  
+          src="../../../assets/img/carrito-lleno.jpg"
+          width="250">
 
     <h1>
         Productos seleccionados: {{ (cart$ | async)?.length }}
@@ -9,17 +17,20 @@
         Precio Total: ${{totalPrice$ | async | number: '.2-4'}}
     </h5>
 
-    <button class="btn btn-info btn-lg text-white"
-            [disabled]="(cart$ | async)?.length === 0">
+    <app-generate-order-button
+    [cart$]="cart$"
+    [disableButton]="(cart$ | async)?.length === 0">
         Generar orden de compra
-    </button>
+    </app-generate-order-button>
 
-    <app-product-card 
-    *ngFor="let item of cart$ | async"
-    [product]="item"
-    [classButton]="'danger'"
-    [buttonText]="'Eliminar del carrito'">
-    </app-product-card>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+        <app-product-card 
+        *ngFor="let item of cart$ | async"
+        [product]="item"
+        [classButton]="'danger'"
+        [buttonText]="'Eliminar del carrito'">
+        </app-product-card>
+    </div>
 
     <p *ngIf="(cart$ | async)?.length === 0"
     class="text-secondary h5">

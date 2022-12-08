@@ -14,7 +14,8 @@ export class NavbarComponent {
     private authService: AuthService,
     private store: Store
     ){ }
-
+  
+  //implementación del logout de la app
   logOut(){
     this.authService.logOut();
 
