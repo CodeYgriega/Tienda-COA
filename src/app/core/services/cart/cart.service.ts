@@ -25,7 +25,7 @@ export class CartService {
     });
   }
 
-  deleteOneInTheCart(id: number){
+  deleteOneInTheCart(id: string){
     const cartFiltered = this.cart.filter((product: Product) => product.id !== id);
     this.cart = cartFiltered;
     

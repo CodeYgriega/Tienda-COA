@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'OCA-Challenge'`, () => {
+  it(`should have as title 'COA-Challenge'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('OCA-Challenge');
+    expect(app.title).toEqual('COA-Challenge');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('OCA-Challenge app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('COA-Challenge app is running!');
   });
 });

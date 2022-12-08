@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "OCA-Challenge": {
+    "COA-Challenge": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/oca-challenge",
+            "outputPath": "dist/coa-challenge",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "OCA-Challenge:build:production"
+              "browserTarget": "COA-Challenge:build:production"
             },
             "development": {
-              "browserTarget": "OCA-Challenge:build:development"
+              "browserTarget": "COA-Challenge:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "OCA-Challenge:build"
+            "browserTarget": "COA-Challenge:build"
           }
         },
         "test": {
