@@ -2,21 +2,26 @@
 <section class="py-5 d-flex flex-column align-items-center gap-3">
 
     <h1>
-        Productos seleccionados: {{ numberOfProducts }}
+        Productos seleccionados: {{ (cart$ | async)?.length }}
     </h1>
 
-    <h5 *ngIf="totalPrice > 0">
-        Precio Total: ${{totalPrice | number: '.2-4'}}
+    <h5 *ngIf="(totalPrice$ | async)">
+        Precio Total: ${{totalPrice$ | async | number: '.2-4'}}
     </h5>
 
+    <button class="btn btn-info btn-lg text-white"
+            [disabled]="(cart$ | async)?.length === 0">
+        Generar orden de compra
+    </button>
+
     <app-product-card 
-    *ngFor="let item of cart"
+    *ngFor="let item of cart$ | async"
     [product]="item"
     [classButton]="'danger'"
     [buttonText]="'Eliminar del carrito'">
     </app-product-card>
 
-    <p *ngIf="numberOfProducts === 0"
+    <p *ngIf="(cart$ | async)?.length === 0"
     class="text-secondary h5">
         No tienes productos para mostrar :(
     </p>

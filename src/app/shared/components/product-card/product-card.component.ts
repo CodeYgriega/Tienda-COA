@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Product } from 'src/app/core/models/product';
-import { CartService } from 'src/app/core/services/cart/cart.service';
+import { Add_Product_In_Cart_Action, Delete_Product_In_Cart_Action } from 'src/app/core/ngrx/actions/cart.actions';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-card',
@@ -12,15 +14,30 @@ export class ProductCardComponent {
   @Input() classButton!: string;
   @Input() buttonText!: string;
 
-  constructor(private cartService: CartService){}
+  constructor(
+    private store: Store
+    ){}
 
   captureProduct(product: Product){
     if(this.buttonText === "Agregar al carrito"){
-      this.cartService.setOneInTheCart(product);
+
+      this.store.dispatch(Add_Product_In_Cart_Action({ product: product }));
+
+      Swal.fire({
+        icon: 'success',
+        html: `¡${product.name} se agregó al carrito!`,
+        confirmButtonText: 'OK'
+      });
     }
     else{
       const { id } = product;
-      this.cartService.deleteOneInTheCart(id);
+      this.store.dispatch(Delete_Product_In_Cart_Action({ id: id }));
+
+      Swal.fire({
+        icon: 'success',
+        html: 'Se eliminó correctamente del carrito.',
+        confirmButtonText: 'OK'
+      });
     }
   }
 }

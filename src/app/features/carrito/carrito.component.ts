@@ -1,36 +1,38 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { map, Observable } from 'rxjs';
 import { Product } from 'src/app/core/models/product';
-import { CartService } from 'src/app/core/services/cart/cart.service';
+import { AppStore } from 'src/app/core/ngrx/app.store';
+import { selectCart } from 'src/app/core/ngrx/selectors/cart.selector';
 
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.scss']
 })
-export class CarritoComponent implements OnInit, DoCheck {
+export class CarritoComponent implements OnInit {
 
-  cart: Product[] = [];
+  cart$!: Observable<Product[]>;
 
-  numberOfProducts: number = 0;
+  totalPrice$!: Observable<number>;
 
-  totalPrice: number = 0;
-
-  constructor(private cartService: CartService){ }
-
-  ngDoCheck(): void {
-    this.getCart();
-  }
+  constructor(private store: Store<AppStore>){ }
 
   ngOnInit(){
     this.getCart();
   }
 
   getCart(){
-    this.cart = this.cartService.getCart();
-    this.numberOfProducts = this.cart.length;
-    this.totalPrice = this.cart.reduce((acc: number, product: Product) => {
-      return acc + product.price;
-    }, 0);
+    this.cart$ = this.store.select(selectCart);
+
+    this.totalPrice$ = this.cart$.pipe(
+      map((products: Product[]) => {
+        return products.reduce((acc: number, product: Product) => {
+          return acc + product.price;
+        }, 0)
+      })
+    )
+       
   }
 
 }
